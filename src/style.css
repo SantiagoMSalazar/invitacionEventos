@@ -146,20 +146,20 @@ body::before {
     filter: drop-shadow(0 4px 20px rgba(0,0,0,0.15));
 }
 
-/* Sobre con colores navideños */
+/* Sobre con colores azules navideños sobrios */
 .envelope-svg path:nth-child(1) {
-    fill: var(--primary-color);
+    fill: #2c4a6e;
 }
 
 .envelope-svg path:nth-child(2) {
-    fill: #b34944;
+    fill: #1e3554;
 }
 
 .envelope-svg path:nth-child(3),
 .envelope-svg path:nth-child(4),
 .envelope-svg path:nth-child(5) {
-    fill: #d67671;
-    stroke: #a84842;
+    fill: #4a6b8a;
+    stroke: #1e3554;
 }
 
 /* Animación de la solapa */
@@ -169,7 +169,7 @@ body::before {
 }
 
 .flap path {
-    fill: #d67671 !important;
+    fill: #4a6b8a !important;
 }
 
 /* Clase que agrega JS al hacer click */

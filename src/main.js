@@ -98,21 +98,22 @@ function initEnvelope() {
     const cardStack = document.getElementById('card-stack');
     const backgroundMusic = document.getElementById('background-music');
     
-    envelopeWrapper.addEventListener('click', () => {
-        envelopeWrapper.classList.add('open');
-        
-        // Reproducir música al abrir el sobre
-        if (backgroundMusic) {
-            backgroundMusic.play().catch(err => {
-                console.log('Error al reproducir audio:', err);
-            });
-        }
-        
-        setTimeout(() => {
-            cardStack.classList.add('visible');
-        }, 500);
-    });
+    // Abrir automáticamente al cargar
+    envelopeWrapper.classList.add('open');
+    
+    // Reproducir música automáticamente
+    if (backgroundMusic) {
+        backgroundMusic.play().catch(err => {
+            console.log('Error al reproducir audio:', err);
+        });
+    }
+    
+    // Mostrar la tarjeta después de un breve delay
+    setTimeout(() => {
+        cardStack.classList.add('visible');
+    }, 500);
 
+    // Mantener el evento de click en la tarjeta para ir a la siguiente pantalla
     cardStack.addEventListener('click', (e) => {
         document.getElementById('screen-1').style.display = 'none';
         document.getElementById('screen-2').style.display = 'block';
