@@ -25,8 +25,10 @@ function loadData() {
     
     // Ubicación
     document.getElementById('ceremony-place').innerText = invitationData.event.location.ceremony.place;
+    document.getElementById('ceremony-hours').innerText = invitationData.event.location.ceremony.hours;
     document.getElementById('ceremony-btn').href = invitationData.event.location.ceremony.mapUrl;
     document.getElementById('reception-place').innerText = invitationData.event.location.reception.place;
+    document.getElementById('reception-hours').innerText = invitationData.event.location.reception.hours;
     document.getElementById('reception-btn').href = invitationData.event.location.reception.mapUrl;
     // Cargar datos del calendario
     loadCalendar();

@@ -11,12 +11,14 @@ export default {
       "ceremony": {
         "place": "Iglesia Católica Jesús Obrero",
         "address": "Av. 9 de Octubre y Riobamba",
-        "mapUrl": "https://maps.app.goo.gl/Rb4n8BW2vBBhD7XT6"
+        "mapUrl": "https://maps.app.goo.gl/Rb4n8BW2vBBhD7XT6",
+        "hours": "17h00"
       },
       "reception": {
         "place": "LOM RECEPCIONES",
         "address": "Av. Olmedo y Joaquín Chiriboga, esquinero",
-        "mapUrl": "https://maps.app.goo.gl/vXrdscvJuAenARY96"
+        "mapUrl": "https://maps.app.goo.gl/vXrdscvJuAenARY96",
+        "hours": "18h30"
       }
     }
   },
