@@ -2,7 +2,7 @@
 import './style.css'
 
 // Importamos los datos desde el JSON
-import invitationData from '../data.json'
+import invitationData from '../data.js' // Cambiar de .json a .js
 
 document.addEventListener('DOMContentLoaded', () => {
     loadData();

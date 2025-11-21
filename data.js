@@ -1,0 +1,32 @@
+export default {
+  "couple": {
+    "names": "Tarjeta de Invitación",
+    "photoUrl": "./public/niñito.jpg",
+    "quote": "Los priostes, Carina Flores y Javier Quiroz, tenemos el honor de invitar a la misita en honor al Niñito de Ingeniería Industrial, seguida de una recepción de homenaje.\n\n Con amor, paz, esperanza y sobre todo, agradecidos por la salud y por todas las bendiciones que el Niñito de Ingeniería Industrial nos ha concedido durante este año, nos reunimos para conmemorar las gracias derramadas sobre nosotros y compartir fraternalmente, poniendo en sus manos nuestros proyectos y anhelos por venir."
+  },
+  "event": {
+    "date": "2025-12-27T17:00:00",
+    "dateDisplay": "27 de Diciembre, 2025",
+    "location": {
+      "ceremony": {
+        "place": "Iglesia Católica Jesús Obrero",
+        "address": "Av. 9 de Octubre y Riobamba",
+        "mapUrl": "https://maps.app.goo.gl/Rb4n8BW2vBBhD7XT6"
+      },
+      "reception": {
+        "place": "LOM RECEPCIONES",
+        "address": "Av. Olmedo y Joaquín Chiriboga, esquinero",
+        "mapUrl": "https://maps.app.goo.gl/vXrdscvJuAenARY96"
+      }
+    }
+  },
+  "details": {
+    "dressCode": "Formal - Colores claros",
+    "giftInfo": "Lluvia de sobres",
+    "rsvpLink": "https://wa.me/123456789?text=Confirmo%20mi%20asistencia"
+  },
+  "envelopeCard": {
+    "title": "Tarjeta de Invitación",
+    "message": "Misa en honor al Niñito de Ingeniería Industrial"
+  }
+}
