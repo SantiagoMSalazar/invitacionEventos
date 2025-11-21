@@ -101,20 +101,20 @@ function initEnvelope() {
     // Abrir automáticamente al cargar
     envelopeWrapper.classList.add('open');
     
-    // Reproducir música automáticamente
-    if (backgroundMusic) {
-        backgroundMusic.play().catch(err => {
-            console.log('Error al reproducir audio:', err);
-        });
-    }
-    
     // Mostrar la tarjeta después de un breve delay
     setTimeout(() => {
         cardStack.classList.add('visible');
     }, 500);
 
-    // Mantener el evento de click en la tarjeta para ir a la siguiente pantalla
+    // Reproducir música y cambiar de pantalla al hacer clic en la tarjeta
     cardStack.addEventListener('click', (e) => {
+        // Intentar reproducir la música al interactuar
+        if (backgroundMusic) {
+            backgroundMusic.play().catch(err => {
+                console.log('No se pudo reproducir el audio:', err);
+            });
+        }
+        
         document.getElementById('screen-1').style.display = 'none';
         document.getElementById('screen-2').style.display = 'block';
         window.scrollTo(0,0);
