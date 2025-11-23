@@ -9,6 +9,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invitación Misa</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
     
@@ -18,15 +20,18 @@
     </audio>
 
     <section id="screen-1" class="screen envelope-screen">
-        <div class="instruction-text">✨ Toca el sobre para abrir ✨</div>
+        <div class="instruction-text"><i class="fa-solid fa-hand-pointer fa-bounce"></i> Toca el sobre para abrir</div>
         
         <div id="envelope-wrapper" class="envelope-wrapper">
             <div id="card-stack" class="card-stack">
-                <div class="card sheet-2"></div> 
+                <div class="card sheet-2">
+                    <img id="hero-photo-preview" src="" alt="Vista previa" class="card-preview-img">
+                </div> 
                 <div class="card sheet-1">
+                    <div class="card-icon-top"><i class="fa-regular fa-snowflake"></i></div>
                     <p id="card-title">Cargando...</p>
                     <p id="card-msg">...</p>
-                    <small>✨ (Toca para ver detalles) ✨</small>
+                    <small><i class="fa-solid fa-arrow-up"></i> (Toca para ver detalles)</small>
                 </div>
             </div>
 
@@ -45,16 +50,22 @@
 
     <section id="screen-2" class="screen content-screen" style="display: none;">
         <header class="invitation-header">
+            <div class="header-decoration">
+                <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+            </div>
             <h1 id="couple-names"></h1>
-            <img id="hero-photo" src="" alt="Foto del evento" class="hero-img">
+            <div class="photo-frame">
+                <img id="hero-photo" src="" alt="Foto del evento" class="hero-img">
+            </div>
         </header>
 
         <div class="section quote-section">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
             <p id="quote" class="quote-text"></p>
         </div>
 
         <div class="section countdown-section">
-            <h3>⏰ Cuenta regresiva ⏰</h3>
+            <h3><i class="fa-regular fa-clock"></i> Cuenta regresiva</h3>
             <div id="countdown" class="timer-grid">
                 <div><span id="d">00</span><small>Días</small></div>
                 <div><span id="h">00</span><small>Horas</small></div>
@@ -65,6 +76,7 @@
             
             <div class="calendar-widget">
                 <div class="calendar-header">
+                    <i class="fa-solid fa-calendar-day calendar-icon"></i>
                     <div class="calendar-month" id="calendar-month">DICIEMBRE</div>
                     <div class="calendar-year" id="calendar-year">2025</div>
                 </div>
@@ -84,16 +96,16 @@
 
         <div class="section location-section">
             <div class="location-block">
-                <h3>⛪ Ceremonia</h3>
+                <h3><i class="fa-solid fa-church"></i> Ceremonia</h3>
                 <p id="ceremony-place"></p>
                 <p id="ceremony-hours"></p>
-                <a id="ceremony-btn" href="#" target="_blank" class="btn">📍 Ver Mapa</a>
+                <a id="ceremony-btn" href="#" target="_blank" class="btn"><i class="fa-solid fa-location-dot"></i> Ver Mapa</a>
             </div>
             <div class="location-block">
-                <h3>🥂 Recepción</h3>
+                <h3><i class="fa-solid fa-glass-cheers"></i> Recepción</h3>
                 <p id="reception-place"></p>
                 <p id="reception-hours"></p>
-                <a id="reception-btn" href="#" target="_blank" class="btn">📍 Ver Mapa</a>
+                <a id="reception-btn" href="#" target="_blank" class="btn"><i class="fa-solid fa-location-dot"></i> Ver Mapa</a>
             </div>
         </div>
     </section>

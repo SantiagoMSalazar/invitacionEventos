@@ -1,18 +1,19 @@
 /* styles.css */
 :root {
-    --primary-color: #2c5f8d; /* Azul medianoche elegante */
-    --secondary-color: #4a7ba7; /* Azul cielo invernal */
-    --accent-gold: #c9a961; /* Dorado champagne */
-    --accent-silver: #b8c5d6; /* Plateado suave */
-    --accent-snow: #f0f5fb; /* Blanco nieve azulado */
-    --text-color: #1e3a5f;
-    --text-light: #6b7f99;
-    --bg-gradient-start: #e6f0ff;
-    --bg-gradient-end: #f0f7ff;
-    --font-serif: 'Georgia', serif;
-    --font-sans: 'Arial', sans-serif;
-    --shadow-soft: 0 8px 30px rgba(44, 95, 141, 0.15);
-    --shadow-hover: 0 12px 40px rgba(44, 95, 141, 0.25);
+    --primary-color: #1B3B86; /* Azul Royal UNACH */
+    --secondary-color: #2850A0; /* Azul complementario */
+    --accent-gold: #D4AF37; /* Oro metálico real */
+    --accent-silver: #C0C0C0; /* Plateado brillante */
+    --accent-snow: #F8F9FA; /* Blanco puro */
+    --text-color: #1a1a2e;
+    --text-light: #6c757d;
+    --bg-gradient-start: #E8EAF6;
+    --bg-gradient-end: #F5F7FA;
+    --font-serif: 'Playfair Display', 'Georgia', serif;
+    --font-sans: 'Roboto', 'Arial', sans-serif;
+    --shadow-soft: 0 10px 40px rgba(27, 59, 134, 0.15);
+    --shadow-hover: 0 15px 50px rgba(27, 59, 134, 0.25);
+    --shadow-gold: 0 5px 25px rgba(212, 175, 55, 0.4);
 }
 
 * {
@@ -25,7 +26,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: var(--font-sans);
-    background: linear-gradient(135deg, #0a1929 0%, #1a2f4a 100%);
+    background: linear-gradient(135deg, #0F1C3F 0%, #1B3B86 50%, #0F1C3F 100%);
     display: flex;
     justify-content: center;
     min-height: 100vh;
@@ -33,7 +34,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Efecto de nieve de fondo */
+/* Efecto de partículas doradas y plateadas de fondo */
 body::before {
     content: '';
     position: fixed;
@@ -42,21 +43,21 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(2px 2px at 60% 70%, white, transparent),
-        radial-gradient(1px 1px at 50% 50%, white, transparent),
-        radial-gradient(1px 1px at 80% 10%, white, transparent),
-        radial-gradient(2px 2px at 90% 60%, white, transparent);
-    background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px;
-    animation: snowfall 20s linear infinite;
-    opacity: 0.6;
+        radial-gradient(2px 2px at 20% 30%, rgba(212, 175, 55, 0.8), transparent),
+        radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(212, 175, 55, 0.6), transparent),
+        radial-gradient(1px 1px at 80% 10%, rgba(192, 192, 192, 0.7), transparent),
+        radial-gradient(2px 2px at 90% 60%, rgba(212, 175, 55, 0.9), transparent);
+    background-size: 250px 250px, 350px 350px, 180px 180px, 280px 280px, 220px 220px;
+    animation: sparkle-fall 25s linear infinite;
+    opacity: 0.7;
     pointer-events: none;
     z-index: 1;
 }
 
-@keyframes snowfall {
+@keyframes sparkle-fall {
     0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
-    100% { background-position: 0 200px, 0 300px, 0 150px, 0 250px, 0 180px; }
+    100% { background-position: 0 250px, 0 350px, 0 180px, 0 280px, 0 220px; }
 }
 
 /* Contenedor tipo celular */
@@ -77,33 +78,44 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #e8f2ff 0%, #f0f7ff 100%);
+    background: linear-gradient(135deg, #E8EAF6 0%, #F5F7FA 100%);
     position: relative;
+    overflow: hidden;
 }
 
-/* Decoración navideña de fondo */
+/* Decoración con íconos de fondo */
 .envelope-screen::before {
-    content: '❄️ ✨ ⭐ 💎 ❄️';
+    content: '✦';
     position: absolute;
-    top: 20px;
-    font-size: 2rem;
-    opacity: 0.4;
-    letter-spacing: 20px;
-    animation: float 6s ease-in-out infinite;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    animation: float-gold 6s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 .envelope-screen::after {
-    content: '❄️';
+    content: '✦';
     position: absolute;
     bottom: 40px;
     font-size: 4rem;
-    opacity: 0.3;
+    color: var(--accent-silver);
+    opacity: 0.25;
     animation: rotate-slow 20s linear infinite;
+    filter: drop-shadow(0 0 15px rgba(192, 192, 192, 0.5));
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
+}
+
+@keyframes float-gold {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-25px); }
 }
 
 @keyframes rotate-slow {
@@ -114,11 +126,19 @@ body::before {
 .instruction-text {
     margin-bottom: 30px;
     color: var(--primary-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     animation: pulse-glow 2s infinite;
-    text-shadow: 0 2px 10px rgba(44, 95, 141, 0.4);
-    font-family: var(--font-serif);
+    text-shadow: 0 2px 15px rgba(27, 59, 134, 0.5);
+    font-family: var(--font-sans);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.instruction-text i {
+    color: var(--accent-gold);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
 }
 
 @keyframes pulse-glow {
@@ -147,20 +167,22 @@ body::before {
     filter: drop-shadow(0 4px 20px rgba(0,0,0,0.15));
 }
 
-/* Sobre con colores azules navideños elegantes */
+/* Sobre con colores Royal Blue y detalles dorados */
 .envelope-svg path:nth-child(1) {
-    fill: #2c5f8d;
+    fill: var(--primary-color);
+    filter: drop-shadow(0 4px 8px rgba(27, 59, 134, 0.3));
 }
 
 .envelope-svg path:nth-child(2) {
-    fill: #1e4163;
+    fill: #0F1C3F;
 }
 
 .envelope-svg path:nth-child(3),
 .envelope-svg path:nth-child(4),
 .envelope-svg path:nth-child(5) {
-    fill: #4a7ba7;
-    stroke: #1e4163;
+    fill: var(--secondary-color);
+    stroke: var(--accent-gold);
+    stroke-width: 0.5;
 }
 
 /* Animación de la solapa */
@@ -170,7 +192,9 @@ body::before {
 }
 
 .flap path {
-    fill: #4a7ba7 !important;
+    fill: var(--secondary-color) !important;
+    stroke: var(--accent-gold);
+    stroke-width: 0.5;
 }
 
 /* Clase que agrega JS al hacer click */
@@ -200,8 +224,8 @@ body::before {
     width: 100%;
     height: 100%;
     background: white;
-    border: 2px solid var(--accent-gold);
-    box-shadow: var(--shadow-soft);
+    border: 3px solid var(--accent-gold);
+    box-shadow: var(--shadow-gold);
     padding: 25px;
     box-sizing: border-box;
     text-align: center;
@@ -209,25 +233,26 @@ body::before {
     flex-direction: column;
     justify-content: center;
     border-radius: 12px;
-    background: linear-gradient(135deg, #e8f2ff 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #F8F9FA 0%, #ffffff 100%);
+    position: relative;
 }
 
-.card::before {
-    content: '❄️';
+.card-icon-top {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    opacity: 0.6;
+    top: 15px;
+    right: 15px;
 }
 
-.card::after {
-    content: '✨';
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 1.5rem;
-    opacity: 0.6;
+.card-icon-top i {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    animation: spin-slow 8s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .sheet-1 {
@@ -256,9 +281,23 @@ body::before {
 }
 
 .sheet-2 {
-    background: linear-gradient(135deg, #f0f7ff 0%, #e8f2ff 100%);
+    background: linear-gradient(135deg, #E8EAF6 0%, #F5F7FA 100%);
     z-index: 1;
     transform: rotate(3deg);
+    border: 3px solid var(--accent-silver);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.card-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.4;
 }
 
 /* Animación: Las cartas salen hacia arriba */
@@ -285,8 +324,8 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 150px;
-    background: linear-gradient(180deg, rgba(44, 95, 141, 0.1) 0%, transparent 100%);
+    height: 180px;
+    background: linear-gradient(180deg, rgba(27, 59, 134, 0.08) 0%, transparent 100%);
     pointer-events: none;
 }
 
@@ -296,14 +335,32 @@ body::before {
     position: relative;
 }
 
-.invitation-header::before {
-    content: '❄️ ✨ ❄️';
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    opacity: 0.7;
+.header-decoration {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.header-decoration i {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    animation: twinkle-gold 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.7));
+}
+
+.header-decoration i:nth-child(2) {
+    animation-delay: 0.3s;
+    font-size: 2.2rem;
+}
+
+.header-decoration i:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes twinkle-gold {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
 }
 
 .invitation-header h1 {
@@ -319,8 +376,17 @@ body::before {
 }
 
 @keyframes title-glow {
-    0%, 100% { filter: drop-shadow(0 0 5px rgba(44, 95, 141, 0.4)); }
-    50% { filter: drop-shadow(0 0 15px rgba(74, 123, 167, 0.7)); }
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(27, 59, 134, 0.5)); }
+    50% { filter: drop-shadow(0 0 20px rgba(40, 80, 160, 0.8)); }
+}
+
+.photo-frame {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-silver) 50%, var(--accent-gold) 100%);
+    border-radius: 25px;
+    box-shadow: var(--shadow-gold);
 }
 
 .hero-img {
@@ -330,17 +396,20 @@ body::before {
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 20px;
-    margin: 20px auto;
+    margin: 0 auto;
     display: block;
-    box-shadow: var(--shadow-soft);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
     border: 5px solid white;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s ease;
 }
 
-.hero-img:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: var(--shadow-hover);
+.photo-frame:hover .hero-img {
+    transform: scale(1.03);
+}
+
+.photo-frame:hover {
+    box-shadow: var(--shadow-gold), 0 0 30px rgba(212, 175, 55, 0.5);
 }
 
 .section {
@@ -366,26 +435,38 @@ body::before {
     margin: 20px 15px;
     border-radius: 20px;
     box-shadow: var(--shadow-soft);
-    border-left: 4px solid var(--secondary-color);
+    border-left: 5px solid var(--accent-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--primary-color), var(--accent-gold));
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 .quote-text {
     font-style: italic;
     color: var(--text-color);
     font-family: var(--font-serif);
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 1.9;
     position: relative;
-}
-
-.quote-text::before {
-    content: '"';
-    font-size: 4rem;
-    position: absolute;
-    top: -20px;
-    left: -10px;
-    color: var(--primary-color);
-    opacity: 0.3;
+    padding-left: 40px;
 }
 
 /* Contador */
@@ -401,6 +482,20 @@ body::before {
     font-family: var(--font-serif);
     font-size: 1.8rem;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.countdown-section h3 i {
+    color: var(--accent-gold);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .timer-grid {
@@ -461,27 +556,24 @@ body::before {
 .calendar-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
     text-align: center;
     position: relative;
+    box-shadow: 0 4px 15px rgba(27, 59, 134, 0.3);
 }
 
-.calendar-header::before {
-    content: '⭐';
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 1.5rem;
-    animation: twinkle 2s infinite;
+.calendar-icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    display: block;
+    animation: bounce-subtle 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
 }
 
-.calendar-header::after {
-    content: '⭐';
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 1.5rem;
-    animation: twinkle 2s infinite 1s;
+@keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 @keyframes twinkle {
@@ -504,13 +596,13 @@ body::before {
 .calendar-weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    background: linear-gradient(135deg, #e8f2ff 0%, #f0f7ff 100%);
+    background: linear-gradient(135deg, #E8EAF6 0%, #F5F7FA 100%);
     padding: 15px 5px;
     gap: 5px;
     text-align: center;
     font-weight: bold;
     font-size: 0.85rem;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 .calendar-days {
@@ -542,20 +634,24 @@ body::before {
 }
 
 .calendar-day-cell.event-day {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-gold) 100%);
     color: white;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(44, 95, 141, 0.6);
-    animation: highlight 2s infinite;
+    box-shadow: var(--shadow-gold);
+    animation: highlight-gold 2s infinite;
     position: relative;
+    border: 2px solid var(--accent-gold);
 }
 
-.calendar-day-cell.event-day::after {
-    content: '❄️';
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-    font-size: 0.8rem;
+@keyframes highlight-gold {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
+    }
+    50% { 
+        transform: scale(1.15); 
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.9);
+    }
 }
 
 .calendar-day-cell.today {
@@ -563,10 +659,7 @@ body::before {
     font-weight: bold;
 }
 
-@keyframes highlight {
-    0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(44, 95, 141, 0.6); }
-    50% { transform: scale(1.15); box-shadow: 0 6px 25px rgba(44, 95, 141, 0.9); }
-}
+
 
 /* Ubicación */
 .location-section {
@@ -592,8 +685,17 @@ body::before {
 .location-block h3 {
     font-family: var(--font-serif);
     font-size: 1.6rem;
-    color: var(--text-color);
+    color: var(--primary-color);
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.location-block h3 i {
+    color: var(--accent-gold);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
 }
 
 .location-block p {
@@ -604,8 +706,10 @@ body::before {
 }
 
 .btn {
-    display: inline-block;
-    padding: 15px 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
     text-decoration: none;
@@ -613,16 +717,43 @@ body::before {
     margin-top: 10px;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(44, 95, 141, 0.4);
+    box-shadow: var(--shadow-soft);
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(44, 95, 141, 0.6);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover), 0 0 20px rgba(212, 175, 55, 0.4);
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.btn i {
+    font-size: 1.1rem;
+    animation: bounce-icon 2s ease-in-out infinite;
+}
+
+@keyframes bounce-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 .btn:active {

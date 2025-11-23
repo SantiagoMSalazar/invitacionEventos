@@ -20,6 +20,7 @@ function loadData() {
     // Principal
     document.getElementById('couple-names').innerText = invitationData.couple.names;
     document.getElementById('hero-photo').src = invitationData.couple.photoUrl;
+    document.getElementById('hero-photo-preview').src = invitationData.couple.photoUrl;
     document.getElementById('quote').innerText = invitationData.couple.quote;
     document.getElementById('date-display').innerText = invitationData.event.dateDisplay;
     
