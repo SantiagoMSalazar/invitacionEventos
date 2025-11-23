@@ -98,23 +98,26 @@ function initEnvelope() {
     const cardStack = document.getElementById('card-stack');
     const backgroundMusic = document.getElementById('background-music');
     
-    // Abrir automáticamente al cargar
-    envelopeWrapper.classList.add('open');
-    
-    // Mostrar la tarjeta después de un breve delay
-    setTimeout(() => {
-        cardStack.classList.add('visible');
-    }, 500);
-
-    // Reproducir música y cambiar de pantalla al hacer clic en la tarjeta
-    cardStack.addEventListener('click', (e) => {
-        // Intentar reproducir la música al interactuar
+    // Click en el sobre para abrir
+    envelopeWrapper.addEventListener('click', () => {
+        envelopeWrapper.classList.add('open');
+        
+        // Reproducir música al abrir el sobre
         if (backgroundMusic) {
             backgroundMusic.play().catch(err => {
                 console.log('No se pudo reproducir el audio:', err);
             });
         }
         
+        // Mostrar la tarjeta después de un breve delay
+        setTimeout(() => {
+            cardStack.classList.add('visible');
+        }, 500);
+    });
+
+    // Click en la tarjeta para ir a la siguiente pantalla
+    cardStack.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evitar que el click llegue al sobre
         document.getElementById('screen-1').style.display = 'none';
         document.getElementById('screen-2').style.display = 'block';
         window.scrollTo(0,0);
